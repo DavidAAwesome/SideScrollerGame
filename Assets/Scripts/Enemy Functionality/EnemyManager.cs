@@ -1,0 +1,30 @@
+using UnityEngine;
+using UnityEditor;
+public class EnemyManager:MonoBehaviour
+{
+    static Vector3 pos;
+    EnemyMovement movement;
+    
+    public  Vector3 position;
+  
+    public string EnemyType;
+    public void EnemyDataSet(){
+        EnemyData.InitializeEnemyAssets();
+    }
+
+    void Start(){
+        movement=GetComponent<EnemyMovement>();
+        position=transform.position;
+        EnemyDataSet();
+    }
+    void Update(){
+        if(EnemyType=="Mosquito"){
+           transform.Translate(Time.deltaTime*movement.SpeedBasedMove(1)*5,0,0);
+        }
+        else if(EnemyType=="Croc"){
+            transform.position += new Vector3(0,Time.deltaTime*movement.TimeBasedMove(1)*5,0);
+        }
+        
+    }
+   
+}
