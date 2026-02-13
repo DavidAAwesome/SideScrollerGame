@@ -6,24 +6,28 @@ public class EnemyMovement:MonoBehaviour
     static float distanceB=0;
     static float distance=0;
     public static float time=0;
-     bool timeDown=false;
+     bool timeUpwards=false;
     public float TimeBasedMove(float speed){
       
       Debug.Log(distanceB);
-      if(distanceB>.6f){
-        timeDown=true;
+      if(distanceB>1){
+        timeUpwards=false;
         distanceB=0;
         
       }
-      if (distanceB<-.6f){
-        timeDown=false;
+      if (distanceB<-1){
+        timeUpwards=true;
         distanceB=0;
       }
-      if (timeDown==true){
-        distanceB-=Time.deltaTime;
+      if (timeUpwards==false){
+    
+        distanceB-=Time.fixedDeltaTime;
+        
+        
       }
       else{
-        distanceB+=Time.deltaTime;
+        
+        distanceB+=Time.fixedDeltaTime;
       }
         return distanceB;
         

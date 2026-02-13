@@ -17,7 +17,7 @@ public class EnemyManager:MonoBehaviour
         position=transform.position;
         EnemyDataSet();
     }
-    void Update(){
+    void FixedUpdate(){
         if(EnemyType=="Mosquito"){
            transform.Translate(Time.deltaTime*movement.SpeedBasedMove(1)*5,0,0);
         }
