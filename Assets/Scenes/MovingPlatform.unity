@@ -684,7 +684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2706688516466168273, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: speed
-      value: 1.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4826185295091599783, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: m_Name
@@ -906,10 +906,8 @@ MonoBehaviour:
   - {fileID: 53370594888244385, guid: be74ecf178fae1948ba7dbc0fd3246b7, type: 3}
   - {fileID: 53370594888244385, guid: 4f0203339afb3fc4082c73794fd4bcdd, type: 3}
   - {fileID: 53370594888244385, guid: 584f493818d714045ac45489f32c0bb4, type: 3}
-  player: {fileID: 683520353}
-  moveSpeed: 1
-  minGap: 4
-  maxGap: 8
+  platformSpawnTime: 1.2
+  platformSpeed: 3.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
