@@ -1,47 +1,43 @@
 using UnityEngine;
 
+
 public class PlatformScroller : MonoBehaviour
 {
     [SerializeField] private GameObject[] platform;
 
-    public BGScroller BGScroller;
     public Transform player;
-    public float platformSpawnTime = 2f;
-    public float timeUntilPlatform = 3f;
-    private float lastPlayerX;
+    public float moveSpeed = 6f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float minGap = 8f;   
+    public float maxGap = 14f; 
+
+    private float lastSpawnX;
+
     void Start()
     {
-        lastPlayerX = player.position.x;
+        lastSpawnX = transform.position.x;
+        SpawnPlatform(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float playerMove = player.position.x - lastPlayerX;
-        if (playerMove > 0)
+      
+        if (player.position.x + 40f > lastSpawnX)
         {
-            timeUntilPlatform -= Time.deltaTime;
-
-            if (timeUntilPlatform < 0)
-            {
-                SpawnLoop();
-                timeUntilPlatform = 3;
-            }
-
+            SpawnPlatform();
         }
-
-        lastPlayerX = player.position.x;
-
     }
 
-    public void SpawnLoop()
+    void SpawnPlatform()
     {
-        GameObject platformSpawn = platform[Random.Range(0, platform.Length)];
-        GameObject spawnedPlatform = Instantiate(platformSpawn, transform.position, Quaternion.identity);
+        float gap = Random.Range(minGap, maxGap);
+        lastSpawnX += gap;
 
-        Rigidbody2D platformRB = spawnedPlatform.GetComponent<Rigidbody2D>();
-        platformRB.linearVelocity = Vector2.left * 2;
-    }    
+        GameObject p = platform[Random.Range(0, platform.Length)];
+        GameObject spawned = Instantiate(p, new Vector3(lastSpawnX, transform.position.y, 0), Quaternion.identity);
+
+        Rigidbody2D rb = spawned.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = Vector2.left * moveSpeed;
+    }
 }
+

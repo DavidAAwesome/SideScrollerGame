@@ -5,30 +5,26 @@ public class BGScroller : MonoBehaviour
     public float scrollSpeed = 2f;
     public bool isScreen;
     public float width;
-    public Transform player;
-    public float lastPlayerLocation;
+    public Rigidbody2D playerRB;
+    public Transform cam;
+    
 
     void Start()
     {
         width = GetComponent<SpriteRenderer>().bounds.size.x;
-        lastPlayerLocation = player.position.x;
+        
        
     }
 
     void Update()
     {
-        float playerMove = player.position.x - lastPlayerLocation;
 
-        if (playerMove > 0)
+        if (playerRB.linearVelocity.x > 0.1f)
         {
             transform.Translate(Vector2.left * scrollSpeed * Time.deltaTime);
         }
-     
-        
 
-
-
-        if (transform.position.x <= -width)
+        if (transform.position.x + width < cam.position.x)
         {
             transform.position += new Vector3(width * 2f, 0, 0);
         }
