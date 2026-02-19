@@ -851,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CamFollow
   player: {fileID: 683520353}
   smoothSpeed: 5
-  offsetX: 0
+  offsetX: 7
   offsetY: 3.2
 --- !u!50 &1015324786 stripped
 Rigidbody2D:
