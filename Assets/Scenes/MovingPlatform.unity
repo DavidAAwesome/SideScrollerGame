@@ -906,8 +906,10 @@ MonoBehaviour:
   - {fileID: 53370594888244385, guid: be74ecf178fae1948ba7dbc0fd3246b7, type: 3}
   - {fileID: 53370594888244385, guid: 4f0203339afb3fc4082c73794fd4bcdd, type: 3}
   - {fileID: 53370594888244385, guid: 584f493818d714045ac45489f32c0bb4, type: 3}
-  platformSpawnTime: 1.2
-  platformSpeed: 3.5
+  player: {fileID: 683520353}
+  moveSpeed: 4
+  minGap: 8
+  maxGap: 14
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

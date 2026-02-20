@@ -1,37 +1,46 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class PlatformScroller : MonoBehaviour
 {
     [SerializeField] private GameObject[] platform;
-    public float platformSpawnTime = 2f;
-    public float platformSpeed = 1f;
-    private float timeUntilPlatformSpawn;
+
+    public Transform player;
+    public float moveSpeed = 6f;
+
+    public float minGap = 8f;
+    public float maxGap = 14f;
+
+    private float lastSpawnX;
+    private float timer;
+
+    void Start()
+    {
+        lastSpawnX = transform.position.x;
+        SpawnPlatform();
+    }
 
     void Update()
     {
-        SpawnLoop();
-    }
+        timer += Time.deltaTime;
 
-    private void SpawnLoop()
-    {
-        timeUntilPlatformSpawn += Time.deltaTime;
-
-        if(timeUntilPlatformSpawn >= platformSpawnTime)
+        if (timer > 0.5f)
         {
-            Spawn();
-            timeUntilPlatformSpawn = 0;
+            SpawnPlatform();
+            timer = 0f;
         }
     }
 
-    private void Spawn()
+    void SpawnPlatform()
     {
-        GameObject platformToSpawn = platform[Random.Range(0, platform.Length)];
-        GameObject spawnedPlatform = Instantiate(platformToSpawn,transform.position,Quaternion.identity);
+        float gap = Random.Range(minGap, maxGap);
+        lastSpawnX += gap;
 
-        Rigidbody2D platformRB = spawnedPlatform.GetComponent<Rigidbody2D>();
-        platformRB.linearVelocity = Vector2.left * platformSpeed;
+        GameObject p = platform[Random.Range(0, platform.Length)];
+        GameObject spawned = Instantiate(p, new Vector3(lastSpawnX, transform.position.y, 0), Quaternion.identity);
+
+        Rigidbody2D rb = spawned.GetComponent<Rigidbody2D>();
+        rb.linearVelocity = Vector2.left * moveSpeed;
     }
-   
 }
 
