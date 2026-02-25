@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7e402420c969c4e958066dc9be4048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  speed: 0
+  speed: 0.1
   position: {x: 0, y: 0, z: 0}
   EnemyType: Mosquito
 --- !u!114 &-499605227312171288
