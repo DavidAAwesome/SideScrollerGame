@@ -10,6 +10,7 @@ public class PlatformScroller : MonoBehaviour
 
     public float minGap = 8f;
     public float maxGap = 14f;
+    public float spawnY = 0f;
 
     private float lastSpawnX;
     private float timer;
@@ -37,7 +38,7 @@ public class PlatformScroller : MonoBehaviour
         lastSpawnX += gap;
 
         GameObject p = platform[Random.Range(0, platform.Length)];
-        GameObject spawned = Instantiate(p, new Vector3(lastSpawnX, transform.position.y, 0), Quaternion.identity);
+        GameObject spawned = Instantiate(p, new Vector3(lastSpawnX, spawnY, 0), Quaternion.identity);
 
         Rigidbody2D rb = spawned.GetComponent<Rigidbody2D>();
         rb.linearVelocity = Vector2.left * moveSpeed;

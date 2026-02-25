@@ -2,21 +2,23 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
-    public Transform player;     
-    public float smoothSpeed = 5f;
-    public float offsetX = 2f;  
-    public float offsetY = 1f;
+    [SerializeField] private Transform target;
+    [SerializeField] private float smoothTime = 0.08f;
+    [SerializeField] private float offsetX = 3f;
+    [SerializeField] private float fixedY = 0f;
 
-    void Update()
+    private Vector3 velocity;
+
+    void LateUpdate()
     {
-        if (player == null) return;
+        if (!target) return;
 
-        Vector3 targetPos = new Vector3(
-            player.position.x + offsetX,
-            player.position.y + offsetY,
+        Vector3 desired = new Vector3(
+            target.position.x + offsetX,
+            fixedY,
             transform.position.z
         );
-
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothSpeed * Time.deltaTime);
+        
+        transform.position = Vector3.SmoothDamp(transform.position, desired, ref velocity, smoothTime);
     }
 }
