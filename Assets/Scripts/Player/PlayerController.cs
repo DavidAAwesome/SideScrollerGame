@@ -59,6 +59,13 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = grounded ? Color.green : Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
     }
+    
+    public void Die()
+    {
+        enabled = false;              // disables this script
+        rb.linearVelocity = Vector2.zero;   // stop motion
+        UIManager.Instance.ShowDeathScreen();
+    }
 
 
 }
