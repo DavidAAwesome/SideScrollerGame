@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149117067}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -17.73, y: -1.52824, z: 0}
   m_LocalScale: {x: 4.7875, y: 17.688, z: 1}
   m_ConstrainProportionsScale: 0
@@ -693,11 +693,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2706688516466168273, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: speed
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2706688516466168273, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: jumpVelocity
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2706688516466168273, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -866,10 +866,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4217792fa97a52d40bdf4ba17703b6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamFollow
-  player: {fileID: 683520353}
-  smoothSpeed: 5
-  offsetX: 7
-  offsetY: 3.2
+  target: {fileID: 683520353}
+  smoothTime: 0.08
+  offsetX: 3
+  fixedY: 0
 --- !u!50 &1015324786 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1046980819235027819, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
