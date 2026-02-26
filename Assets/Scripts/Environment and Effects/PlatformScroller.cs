@@ -25,7 +25,7 @@ public class PlatformScroller : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > 0.5f)
+        if (timer > 2.5f)
         {
             SpawnPlatform();
             timer = 0f;

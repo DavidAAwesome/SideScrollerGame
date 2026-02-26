@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 149117069}
   - component: {fileID: 149117068}
   - component: {fileID: 149117071}
+  - component: {fileID: 149117072}
   m_Layer: 0
   m_Name: DestroyBox
   m_TagString: Destroy
@@ -150,6 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea840c552ec637e49b17012beb44e10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestroyPlatform
+  moveSpeed: 3
+  rb: {fileID: 149117072}
 --- !u!212 &149117069
 SpriteRenderer:
   serializedVersion: 2
@@ -270,6 +273,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &149117072
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149117067}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
 --- !u!1 &342775752
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4826185295091599783, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7764773949501555498, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -924,11 +958,16 @@ MonoBehaviour:
   - {fileID: 53370594888244385, guid: be74ecf178fae1948ba7dbc0fd3246b7, type: 3}
   - {fileID: 53370594888244385, guid: 4f0203339afb3fc4082c73794fd4bcdd, type: 3}
   - {fileID: 53370594888244385, guid: 584f493818d714045ac45489f32c0bb4, type: 3}
+  - {fileID: 53370594888244385, guid: bcdfaf871522fa146b5e3e0349642420, type: 3}
+  - {fileID: 53370594888244385, guid: c957adf9532553f4592f0aab24b79532, type: 3}
+  - {fileID: 53370594888244385, guid: 46890486c8bef0547982c55abd65913d, type: 3}
+  - {fileID: 53370594888244385, guid: 7b2cad3ccad21624eb71dc4106a05ffb, type: 3}
+  - {fileID: 53370594888244385, guid: 488aac2ec447c634e85d3127a7b17596, type: 3}
   player: {fileID: 683520353}
   moveSpeed: 4
   minGap: 8
   maxGap: 14
-  spawnY: 0.2
+  spawnY: 0.01
 --- !u!114 &1130736070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,9 +983,10 @@ MonoBehaviour:
   groundPrefabs:
   - {fileID: 3496499227728518233, guid: 320a37246d9ada941a6e9548467d37c9, type: 3}
   - {fileID: 4302754912079927270, guid: c9ec62c416fdfce4590df358e4c1a413, type: 3}
+  - {fileID: 3496499227728518233, guid: 6e48a84ca59da8143ba56f08b29a95fa, type: 3}
   player: {fileID: 683520353}
-  groundWidth: 10
-  groundsOnScreen: 3
+  groundWidth: 4
+  groundsOnScreen: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

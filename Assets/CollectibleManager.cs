@@ -19,7 +19,13 @@ public class CollectibleManager : MonoBehaviour
          Destroy(gameObject);
         CollectibleAmount+=1;
     }
-    private void OnTriggerEnter2D(Collider2D col){
-       Collect();
+   
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Collect();
+        }
     }
 }
