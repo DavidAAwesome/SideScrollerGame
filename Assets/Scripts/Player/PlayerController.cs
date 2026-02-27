@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+
+        if (transform.position.y <= -5)
+            Die();
     }
 
     private void FixedUpdate()
