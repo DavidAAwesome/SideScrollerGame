@@ -6,7 +6,7 @@ public class MainMenuUI : MonoBehaviour
 
     public void OnPlayPressed()
     {
-        SceneManager.LoadScene("UIScene");
+        SceneManager.LoadScene("MovingPlatform");
     }
 
     public void OnQuitPressed()
