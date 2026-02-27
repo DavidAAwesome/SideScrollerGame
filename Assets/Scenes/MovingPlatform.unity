@@ -733,6 +733,10 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3217085725275371760, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 833b3d19ce65ff845b00e3d3fdbb4731, type: 2}
     - target: {fileID: 4826185295091599783, guid: 8f3131cd0a1bbc44db56d8f414c8c1a6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -985,7 +989,6 @@ MonoBehaviour:
   - {fileID: 4302754912079927270, guid: c9ec62c416fdfce4590df358e4c1a413, type: 3}
   - {fileID: 3496499227728518233, guid: 6e48a84ca59da8143ba56f08b29a95fa, type: 3}
   player: {fileID: 683520353}
-  groundWidth: 4
   groundsOnScreen: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
