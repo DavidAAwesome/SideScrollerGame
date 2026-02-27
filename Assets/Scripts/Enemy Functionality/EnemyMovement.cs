@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 public class EnemyMovement:MonoBehaviour
 {
-    
+    public Animator anim;
     static float distanceB=0;
     static float distance=0;
     public static float time=0;
@@ -11,11 +11,16 @@ public class EnemyMovement:MonoBehaviour
       
       Debug.Log(distanceB);
       if(distanceB>1){
+           if (anim!=null)
+        anim.SetBool("gatorUp",false);
         timeUpwards=false;
         distanceB=0;
         
+        
       }
       if (distanceB<-1){
+        if (anim!=null)
+        anim.SetBool("gatorUp",true);
         timeUpwards=true;
         distanceB=0;
       }
