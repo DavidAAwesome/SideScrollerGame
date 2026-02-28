@@ -9,14 +9,12 @@ public class EnemyManager:MonoBehaviour
     public  Vector3 position;
   
     public string EnemyType;
-    public void EnemyDataSet(){
-        EnemyData.InitializeEnemyAssets();
-    }
+    
 
     void Start(){
         movement=GetComponent<EnemyMovement>();
         position=transform.position;
-        EnemyDataSet();
+       
     }
     void FixedUpdate(){
         if(EnemyType=="Mosquito"){

@@ -2,25 +2,26 @@ using UnityEngine;
 using UnityEditor;
 public class EnemyMovement:MonoBehaviour
 {
-    public Animator anim;
+    Animator GatorOnlyanim;
     static float distanceB=0;
     static float distance=0;
     public static float time=0;
      bool timeUpwards=false;
     public float TimeBasedMove(float speed){
-      
+      if(GetComponent<Animator>()!=null&&name.Contains("Gator"))
+        GatorOnlyanim=GetComponent<Animator>();
       Debug.Log(distanceB);
       if(distanceB>1){
-           if (anim!=null)
-        anim.SetBool("gatorUp",false);
+           if (GatorOnlyanim!=null)
+        GatorOnlyanim.SetBool("gatorUp",false);
         timeUpwards=false;
         distanceB=0;
         
         
       }
       if (distanceB<-1){
-        if (anim!=null)
-        anim.SetBool("gatorUp",true);
+        if (GatorOnlyanim!=null)
+        GatorOnlyanim.SetBool("gatorUp",true);
         timeUpwards=true;
         distanceB=0;
       }
