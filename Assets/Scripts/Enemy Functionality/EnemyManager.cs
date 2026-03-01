@@ -21,7 +21,7 @@ public class EnemyManager:MonoBehaviour
            transform.Translate(Time.deltaTime*movement.SpeedBasedMove(speed)*5,0,0);
         }
         else if(EnemyType=="Croc"){
-            transform.position += new Vector3(0,Time.deltaTime*movement.TimeBasedMove(1)*5,0);
+            transform.Translate(0,Time.deltaTime*movement.TimeBasedMove(1)*5,0);
         }
         
     }

@@ -3,7 +3,7 @@ using UnityEditor;
 public class EnemyMovement:MonoBehaviour
 {
     Animator GatorOnlyanim;
-    static float distanceB=0;
+   float distanceB=0;
     static float distance=0;
     public static float time=0;
      bool timeUpwards=false;
