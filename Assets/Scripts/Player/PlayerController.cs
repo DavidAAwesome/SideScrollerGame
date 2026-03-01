@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jumpVelocity;
     public float fallGravityMultiplier = 3f;
     public float riseGravityMultiplier = 2f;
+    public int doubleJumpsAmmount = 1;
     
     [Header("GroundCheck")]
     public Transform groundCheck;
@@ -21,16 +22,25 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool grounded;
     private float baseGravity;
+    private int doubleJumps;
 
     void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         baseGravity = rb.gravityScale;
     }
+
+    void Start()
+    {
+        ScoreManager.Instance.StartRun();
+        doubleJumps = doubleJumpsAmmount;
+    }
     
     void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        if (grounded)
+            doubleJumps = doubleJumpsAmmount;
 
         if (transform.position.y <= -5)
             Die();
@@ -54,6 +64,14 @@ public class PlayerController : MonoBehaviour
     {
         if (grounded)
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
+        else
+        {
+            if (doubleJumps > 0)
+            {
+                doubleJumps--;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
+            }
+        }
     }
     
     void OnDrawGizmos()
@@ -67,8 +85,7 @@ public class PlayerController : MonoBehaviour
     {
         enabled = false;              // disables this script
         rb.linearVelocity = Vector2.zero;   // stop motion
-        UIManager.Instance.ShowDeathScreen();
+        UIManager.Instance.ShowDeathScreen(ScoreManager.Instance.EndRunAndFinalizeScore());
     }
-
-
+    
 }

@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject deathPanel;
+    [SerializeField] private DeathScreenUI deathScreenUI;
 
     public UIScreen CurrentScreen { get; private set; }
     public bool IsPaused { get; private set; }
@@ -66,7 +67,6 @@ public class UIManager : MonoBehaviour
     {
         IsPaused = paused;
         Time.timeScale = paused ? 0f : 1f;
-        Debug.Log($"TimeScale = {Time.timeScale}" );
     }
 
     void OnPause()
@@ -88,19 +88,18 @@ public class UIManager : MonoBehaviour
     public void OnRestartPressed()
     {
         Time.timeScale = 1f;
-        Debug.Log($"TimeScale = {Time.timeScale}" );
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnMainMenuPressed()
     {
         Time.timeScale = 1f;
-        Debug.Log($"TimeScale = {Time.timeScale}" );
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void ShowDeathScreen()
+    public void ShowDeathScreen(int finalScore)
     {
         Show(UIScreen.Death);
+        deathScreenUI.ShowWithScore(finalScore);
     }
 }

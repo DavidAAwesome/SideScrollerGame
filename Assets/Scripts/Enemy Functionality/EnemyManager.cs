@@ -25,5 +25,12 @@ public class EnemyManager:MonoBehaviour
         }
         
     }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+            player.Die();
+    }
    
 }
