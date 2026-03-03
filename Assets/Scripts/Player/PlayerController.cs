@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    public Animator anim;
     [Header("PlayerStats")]
     public float speed;
     
@@ -39,8 +40,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
-        if (grounded)
+        if (grounded){
             doubleJumps = doubleJumpsAmmount;
+             anim.SetBool("isJumping",false);
+        }
+        
 
         if (transform.position.y <= -5)
             Die();
@@ -62,12 +66,20 @@ public class PlayerController : MonoBehaviour
 
     void OnJump()
     {
-        if (grounded)
+        
+        if (grounded){
+            anim.SetBool("isJumping",true);
+            
+                
+           
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
+           
+        }
         else
         {
             if (doubleJumps > 0)
             {
+               
                 doubleJumps--;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
             }
