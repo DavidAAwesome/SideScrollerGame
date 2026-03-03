@@ -143,6 +143,7 @@ MonoBehaviour:
   jumpVelocity: 12
   fallGravityMultiplier: 3
   riseGravityMultiplier: 3
+  doubleJumpsAmmount: 1
   groundCheck: {fileID: 8048505165330258992}
   groundRadius: 0.2
   groundLayer:
@@ -172,8 +173,8 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &3217085725275371760
 BoxCollider2D:

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    public ScoreManager manager ;
     public bool spawnerSpawn=true;
        public float spawnerTime=0;
 
@@ -11,9 +12,19 @@ public class Spawn : MonoBehaviour
      public  GameObject Mosquito;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
+        if(manager.CurrentScore>1000){
+             if(obj=="Snake")
+                gameObject.name="Mosquito";
+              if(obj=="Mosquito"){
+            
+                Instantiate(Mosquito,new Vector3(transform.position.x+5,0,0),transform.rotation);
+
+              }
+          
+            
+        }
       
     }
 
