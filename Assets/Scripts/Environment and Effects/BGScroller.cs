@@ -31,7 +31,7 @@ public class BGScroller : MonoBehaviour
     {
         // Parallax position for THIS tile
         float parallaxX = cam.position.x * parallaxMultiplier;
-        transform.position = new Vector3(startX + parallaxX, transform.position.y, transform.position.z);
+        transform.position = new Vector3(startX + parallaxX - 1, transform.position.y, transform.position.z);
 
         // How far the camera has moved relative to this tile at "world speed"
         float camRelativeX = cam.position.x * (1f - parallaxMultiplier);
