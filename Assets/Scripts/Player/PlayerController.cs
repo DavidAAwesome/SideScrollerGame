@@ -66,9 +66,9 @@ public class PlayerController : MonoBehaviour
 
     void OnJump()
     {
-        
+        anim.SetBool("isJumping",true);
         if (grounded){
-            anim.SetBool("isJumping",true);
+            
             
                 
            
