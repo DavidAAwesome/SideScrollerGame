@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
         Instance = this;
 
         Time.timeScale = 1f;
-        Debug.Log($"TimeScale = {Time.timeScale}" );
+        // Debug.Log($"TimeScale = {Time.timeScale}" );
         IsPaused = false;
     }
     

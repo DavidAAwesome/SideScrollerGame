@@ -10,7 +10,7 @@ public class EnemyMovement:MonoBehaviour
     public float TimeBasedMove(float speed){
       if(GetComponent<Animator>()!=null&&name.Contains("Gator"))
         GatorOnlyanim=GetComponent<Animator>();
-      Debug.Log(distanceB);
+      // Debug.Log(distanceB);
       if(distanceB>1){
            if (GatorOnlyanim!=null)
         GatorOnlyanim.SetBool("gatorUp",false);

@@ -34,7 +34,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-               Debug.Log("Score"+ scoreObject.GetComponent<ScoreManager>().CurrentScore);
+               // Debug.Log("Score"+ scoreObject.GetComponent<ScoreManager>().CurrentScore);
 
       if(GlobalTime.time>spawnerTime&&spawnerSpawn==true){
           

@@ -22,6 +22,11 @@ public class BGScroller : MonoBehaviour
             cam = Camera.main.transform;
     }
 
+    void Start()
+    {
+        Debug.Log(GetComponent<SpriteRenderer>().bounds.size.x);
+    }
+
     void LateUpdate()
     {
         // Parallax position for THIS tile
