@@ -3,9 +3,18 @@ using UnityEngine;
 public class CamFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
-    [SerializeField] private float smoothTime = 0.08f;
+
+    [Header("Horizontal")]
     [SerializeField] private float offsetX = 3f;
-    [SerializeField] private float fixedY = 0f;
+
+    [Header("Vertical")]
+    [SerializeField] private float baseY = 0f;             // default camera height
+    [SerializeField] private float followThreshold = 2f;   // how high player must go before camera moves
+    [SerializeField] private float maxYIncrease = 2f;      // max camera lift
+    [SerializeField] private float verticalSmoothTime = 0.2f;
+
+    [Header("General Smooth")]
+    [SerializeField] private float smoothTime = 0.08f;
 
     private Vector3 velocity;
 
@@ -13,12 +22,32 @@ public class CamFollow : MonoBehaviour
     {
         if (!target) return;
 
-        Vector3 desired = new Vector3(
+        float desiredY = baseY;
+
+        float heightDifference = target.position.y - baseY;
+
+        if (heightDifference > followThreshold)
+        {
+            float extra = Mathf.Clamp(
+                heightDifference - followThreshold,
+                0,
+                maxYIncrease
+            );
+
+            desiredY = baseY + extra;
+        }
+
+        Vector3 desiredPosition = new Vector3(
             target.position.x + offsetX,
-            fixedY,
+            desiredY,
             transform.position.z
         );
-        
-        transform.position = Vector3.SmoothDamp(transform.position, desired, ref velocity, smoothTime);
+
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            desiredPosition,
+            ref velocity,
+            smoothTime
+        );
     }
 }
