@@ -22,7 +22,7 @@ public class Spawn : MonoBehaviour
                 gameObject.name="Mosquito";
               if(obj=="Mosquito"){
             
-                Instantiate(Mosquito,new Vector3(transform.position.x+5,0,0),transform.rotation);
+                Instantiate(Mosquito,new Vector3(transform.position.x+5,transform.position.y,transform.position.z),transform.rotation);
 
               }
           
