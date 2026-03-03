@@ -15,7 +15,8 @@ public class BGScroller : MonoBehaviour
     void Awake()
     {
         var sr = GetComponent<SpriteRenderer>();
-        width = sr.bounds.size.x;
+        // width = sr.bounds.size.x;
+        width = 21f;
         startX = transform.position.x;
 
         if (cam == null)
