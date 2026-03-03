@@ -72,12 +72,13 @@ public class PlayerController : MonoBehaviour
         if (grounded){
             if(canJump){
             anim.SetBool("isJumping",true);
+               rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
             canJump=false;
             }
             
                 
            
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
+         
            
         }
         else
