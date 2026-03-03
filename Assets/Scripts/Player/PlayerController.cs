@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
+    bool canJump = true;
     public Animator anim;
     [Header("PlayerStats")]
     public float speed;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         if (grounded){
             doubleJumps = doubleJumpsAmmount;
              anim.SetBool("isJumping",false);
+             canJump=true;
         }
         
 
@@ -66,9 +68,12 @@ public class PlayerController : MonoBehaviour
 
     void OnJump()
     {
-        anim.SetBool("isJumping",true);
+        
         if (grounded){
-            
+            if(canJump){
+            anim.SetBool("isJumping",true);
+            canJump=false;
+            }
             
                 
            
