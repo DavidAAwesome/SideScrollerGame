@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public ScoreManager manager ;
+    GameObject scoreObject;
+    ScoreManager manager ;
     public bool spawnerSpawn=true;
        public float spawnerTime=0;
 
@@ -14,8 +15,9 @@ public class Spawn : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        ScoreManager manager = new ScoreManager();
-        if(manager.CurrentScore>1000){
+        scoreObject=GameObject.Find("ScoreManager");
+       
+        if(scoreObject.GetComponent<ScoreManager>().CurrentScore>500){
              if(obj=="Snake")
                 gameObject.name="Mosquito";
               if(obj=="Mosquito"){
@@ -32,7 +34,8 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+               Debug.Log("Score"+ scoreObject.GetComponent<ScoreManager>().CurrentScore);
+
       if(GlobalTime.time>spawnerTime&&spawnerSpawn==true){
           
             if(obj=="Snake")
