@@ -25,7 +25,7 @@ public class BGScroller : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(GetComponent<SpriteRenderer>().bounds.size.x);
+        // Debug.Log(GetComponent<SpriteRenderer>().bounds.size.x);
     }
 
     void LateUpdate()

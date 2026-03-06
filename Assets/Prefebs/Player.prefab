@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1314456131598293868}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.212, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236,18 +236,9 @@ MonoBehaviour:
   anim: {fileID: 632576181842824767}
   speed: 5
   jumpVelocity: 15
-  doubleJumpScale: 0.75
   fallGravityMultiplier: 3
   riseGravityMultiplier: 3
   doubleJumpsAmmount: 1
-  cloudFxRenderer: {fileID: 2709370064580833898}
-  cloudSprites:
-  - {fileID: -4514878311770001818, guid: c893a10ccdbc8df498c836f92e3ed193, type: 3}
-  - {fileID: 6994388660509835131, guid: c893a10ccdbc8df498c836f92e3ed193, type: 3}
-  - {fileID: -7278219955047813226, guid: c893a10ccdbc8df498c836f92e3ed193, type: 3}
-  - {fileID: 3456337522445850978, guid: c893a10ccdbc8df498c836f92e3ed193, type: 3}
-  cloudLifetime: 0.12
-  cloudOffset: {x: 0, y: -0.6}
   groundCheck: {fileID: 8048505165330258992}
   groundRadius: 0.2
   groundLayer:
@@ -353,7 +344,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!70 &520337539444956228

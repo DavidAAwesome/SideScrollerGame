@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    bool canJump = true; 
     public Animator anim; 
     [Header("PlayerStats")] 
     public float speed;
@@ -39,12 +38,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        
 
         if (grounded)
         {
+            Debug.Log("Grounded");
             doubleJumps = doubleJumpsAmmount;
             anim.SetBool("isJumping", false);
-            canJump = true;
         }
 
         if (transform.position.y <= -5)
@@ -69,17 +69,16 @@ public class PlayerController : MonoBehaviour
     {
         if (grounded)
         {
-            if (canJump)
-            {
-                anim.SetBool("isJumping", true);
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
-                canJump = false;
-            }
+            Debug.Log($"Grounded Jump: {grounded}");
+            anim.SetBool("isJumping", true);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
         }
         else
         {
+            Debug.Log($"Tried in air: {grounded}");
             if (doubleJumps > 0)
             {
+                Debug.Log($"Used double jump : {grounded}");
                 doubleJumps--;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVelocity);
             }

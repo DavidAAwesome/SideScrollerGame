@@ -20,7 +20,7 @@ public class DestroyPlatform : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            Debug.Log("Destroying: " + other.name);
+            // Debug.Log("Destroying: " + other.name);
             Destroy(other.gameObject);
         }
 
